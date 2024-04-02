@@ -1,4 +1,4 @@
-name: workflow principal de cicd
+name: workflow test
 
 on:
   push:
