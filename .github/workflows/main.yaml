@@ -1,4 +1,4 @@
-name: workflow test
+name: workflow principal de cicd
 
 on:
   push:
@@ -9,22 +9,26 @@ on:
 jobs:
   build_and_test:
     name: Build and Test
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-      name: Checkout code
+      
+name: Checkout code
+      uses: actions/checkout@v3
 
-    - name: Set up JDK 17
+      
+name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'adopt'
 
-    - name: Build
+      
+name: Build
       run: ./gradlew build
       shell: bash
 
-    - name: Test
+      
+name: Test
       run: ./gradlew test
       shell: bash
