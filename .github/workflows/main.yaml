@@ -28,3 +28,6 @@ jobs:
     - name: Test
       run: ./gradlew test
       shell: bash
+
+   - name: Grant execute permission for gradlew
+    run: chmod +x ./gradlew
