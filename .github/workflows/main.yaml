@@ -1,33 +1,32 @@
-name: workflow principal de cicd
+name: "Workflow principal de CI/CD"
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      
+master
 
 jobs:
-  build_and_test:
-    name: Build and Test
+  test_build:
+    name: "Test et Build"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      name: Checkout code
+      
+name: Checkout du code
+      uses: actions/checkout@v3  # Utilisation de l'action GitHub pour récupérer le code du dépôt
 
-    - name: Set up JDK 17
+      
+name: Setup Java
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
-        distribution: 'adopt'
+        java-version: '17'  # Version Java à utiliser
+        distribution: 'adopt'  # Distribution d'AdoptOpenJDK
 
-    - name: Build
+      
+name: Build du projet
       run: ./gradlew build
-      shell: bash
 
-    - name: Test
+      
+name: Exécuter les tests
       run: ./gradlew test
-      shell: bash
-
-   - name: Grant execute permission for gradlew
-    run: chmod +x ./gradlew
